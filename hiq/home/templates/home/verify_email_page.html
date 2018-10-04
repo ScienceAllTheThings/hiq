@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load wagtailimages_tags %}
+{% load wagtailcore_tags %}
+
+{% block body_class%}template-signuppage{% endblock %}
+{% block content %}
+
+
+
+  <div class='signupform-container'>
+    <div class='signupform'>
+      <div class='signup-header'>
+        <span class="fa-stack fa-3x">
+                <i class="fa fa-envelope-o fa-stack-2x"></i>
+                <i class="fa fa-check fa-stack-1x" style="top: -10%;left: 5%;"></i>
+        </span>
+        {{page.content|richtext}}
+
+      </div>
+      <div class='signup-completion'>
+        Setup Account <span class='fa fa-check'></span><br>
+        <span class='active'>Verify Email</span><span>&nbsp;</span><br>
+        Take Assessment<span>&nbsp;</span><br>
+      </div>
+      <form method='POST' action='.' name='verifyform'>
+        {% csrf_token %}
+        <div class='email-verify-container outer'>
+          <div class='inner'>
+            <input type='text' name='verify_code' />
+          </div>
+
+        </div>
+
+
+        <div class='error'>
+          {{request.session.verify_key_error}}
+        </div>
+        <div class='submit-container'>
+          <span class='button verify-submit' >Submit</span>
+          <button type='submit' style='display:none;'></button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

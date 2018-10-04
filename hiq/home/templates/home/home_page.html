@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load wagtailimages_tags %}
+{% load wagtailcore_tags %}
+
+
+
+{% block body_class %}template-homepage{% endblock %}
+
+{% block content %}
+  {% image page.hero_image original as hero_image%}
+  <div class="hero-container" style="background-image:url({{hero_image.url}});background-size:cover">
+    <div class='heading-container'>
+      <div class='heading'><h1>{{page.heading}}</h1></div>
+      <div class='sub-heading'>{{page.sub_heading}}</div>
+      <div class='login-register'><span class='button'>Login</span> or <a href='/signup'><span class='button'>Signup</span></a></div>
+      <div class='page-down-container'>
+        <span class="fa fa-angle-down page-down scroll-down"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class='paralax-container'>
+    <div class='how-container'>
+      <div class='how-heading'>
+        <h2>{{page.secondary_heading}}</h2>
+      </div>
+      <div class='how-content'>
+        {{page.homepage_content|richtext}}
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

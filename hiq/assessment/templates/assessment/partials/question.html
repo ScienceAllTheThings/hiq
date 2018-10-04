@@ -1,0 +1,27 @@
+{% load wagtailcore_tags %}
+<div class='question {% ifequal loopcounter 1 %}active{% endifequal %}' data-question_number={{loopcounter}}>
+  {{q.question|richtext}}
+  <div class='answers'>
+
+    <div class='input-group'>
+    <input type='radio' id='q_{{q.id}}_1' name='q_{{q.id}}' />
+    <label for='q_{{q.id}}_1'>{{q.ans1}}</label>
+    </div>
+    <div class='input-group'>
+    <input type='radio' id='q_{{q.id}}_2' name='q_{{q.id}}' />
+    <label for='q_{{q.id}}_2'>{{q.ans2}}</label>
+    </div>
+    <div class='input-group'>
+    <input type='radio' id='q_{{q.id}}_3' name='q_{{q.id}}' />
+    <label for='q_{{q.id}}_3'>{{q.ans3}}</label>
+    </div>
+    <div class='input-group'>
+    <input type='radio' id='q_{{q.id}}_4' name='q_{{q.id}}' />
+    <label for='q_{{q.id}}_4'>{{q.ans4}}</label>
+    </div>
+    <div class='input-group'>
+    <input type='radio' id='q_{{q.id}}_5' name='q_{{q.id}}' />
+    <label for='q_{{q.id}}_5'>{{q.ans5}}</label>
+    </div>
+  </div>
+</div>

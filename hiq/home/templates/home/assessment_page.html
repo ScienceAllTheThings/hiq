@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load wagtailimages_tags %}
+{% load wagtailcore_tags %}
+
+{% block body_class%}template-signuppage{% endblock %}
+{% block content %}
+
+
+
+  <div class='signupform-container'>
+    <div class='signupform'>
+      <div class='signup-header'>
+        <span class='fa fa-file-text-o fa-5x'></span>
+
+        {{page.content|richtext}}
+
+      </div>
+      <div class='signup-completion'>
+        Setup Account<span class='fa fa-check'></span><br>
+        Verify Email<span class='fa fa-check'></span><br>
+        <span class='active'>Take Assessment</span><span>&nbsp;</span><br>
+      </div>
+
+        <div class='submit-container'>
+          <a href='./assessment-questions'><span class='button assessment-submit' >Begin Assessment</span></a>
+
+        </div>
+
+    </div>
+  </div>
+
+{% endblock %}

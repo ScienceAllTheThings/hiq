@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% load wagtailimages_tags %}
+{% load wagtailcore_tags %}
+
+{% block body_class%}template-signuppage{% endblock %}
+{% block content %}
+
+
+
+  <div class='signupform-container'>
+    <div class='signupform'>
+      <div class='signup-header'>
+        <span class='fa fa-user-circle-o fa-5x'></span>
+        {{page.content|richtext}}
+
+      </div>
+      <div class='signup-completion'>
+        <span class='active'>Setup Account</span><br>
+        Verify Email<br>
+        Take Assessment<br>
+      </div>
+      <form method='POST' action='.' name='signupform'>
+        {% csrf_token %}
+            <label for="inp" class="inp">
+              <input type="text" name='first_name' placeholder="&nbsp;" value="{{request.POST.first_name}}" required>
+              <span class="label">First&nbsp;Name</span>
+              <span class="border"></span>
+            </label>
+            <label for="inp" class="inp">
+              <input type="text" name='last_name' placeholder="&nbsp;" value="{{request.POST.last_name}}" required>
+              <span class="label">Last&nbsp;Name</span>
+              <span class="border"></span>
+            </label>
+            <label for="inp" class="inp">
+              <input type="email" name='email' placeholder="&nbsp;" value="{{request.POST.email}}" required>
+              <span class="label">Email</span>
+              <span class="border"></span>
+            </label>
+            <label for="inp" class="inp">
+              <input type="password" name='password' placeholder="&nbsp;" required>
+              <span class="label">Password</span>
+              <span class="border"></span>
+            </label>
+            <label for="inp" class="inp">
+              <input type="password" name='confirm_password' placeholder="&nbsp;" required>
+              <span class="label">Confirm&nbsp;Password</span>
+            </label>
+            <div class='error-container'>
+              <span class="error">{{request.session.form_error}}</span>
+            </div>
+            <div class='submit-container'>
+              <span class='button' id='signupform_submit'>Submit</span><button type='submit' style='display:none;'></button>
+            </div>
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

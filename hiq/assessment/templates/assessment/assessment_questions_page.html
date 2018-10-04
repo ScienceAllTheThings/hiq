@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load wagtailimages_tags %}
+{% load wagtailcore_tags %}
+
+{% block body_class %}template-assessment-questions{% endblock %}
+
+{% block content %}
+  <div class='question-container'>
+    <div class='question-header'>
+      <h1>HiQ Assessment</h1>
+      <div class='assessment-counter'>
+        <h3><span class='current-question'>1</span>/<span>{{questions.count}}</span></h3>
+      </div>
+    </div>
+    {% for question in questions %}
+      {% include 'assessment/partials/question.html' with q=question loopcounter=forloop.counter %}
+    {% endfor %}
+    <div class='question-navigation'>
+      <div class='nav left'>
+        <span class='button prev'><- Prev</span>
+      </div>
+      <div class='nav right'>
+        <span class='button next'>Next -></span>
+      </div>
+    </div>
+  </div>
+{% endblock %}
