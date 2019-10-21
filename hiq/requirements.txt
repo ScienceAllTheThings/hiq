@@ -24,5 +24,5 @@ Unidecode==1.0.22
 urllib3==1.23
 wagtail==2.2.2
 webencodings==0.5.1
-Werkzeug==0.14.1
+Werkzeug==0.15.3
 Willow==1.1
